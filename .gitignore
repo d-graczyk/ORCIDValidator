@@ -1,10 +1,15 @@
+# Folders
 __pycache__/
 .idea
-icon/*.png
-icon/*.ico
 venv/
 build/
 dist/
+
+# Extensions
 *.pyc
-NOTES.txt
+*.png
+*.ico
 *.spec
+
+# Specific files
+NOTES.txt

@@ -73,8 +73,8 @@ class MainApplication:
                                        borderwidth=self.border_width, )
         self.frm_bottom_row.grid(row=3, column=1)
 
-        self.label_1 = tk.Label(master=self.frm_bottom_row, font=self.window_font, text="Status:")
-        self.label_1.grid(row=1, column=1, sticky=tk.W)
+        self.label_2 = tk.Label(master=self.frm_bottom_row, font=self.window_font, text="Status:")
+        self.label_2.grid(row=1, column=1, sticky=tk.W)
 
         self.frm_status = tk.Frame(master=self.frm_bottom_row,
                                    relief=tk.SUNKEN,
@@ -92,16 +92,17 @@ class MainApplication:
     def set_status(self, status_msg, status_color='black'):
         self.lbl_status.config(text=status_msg, fg=status_color)
 
-    def validate_orcid(self, arg=None):
+    def validate_orcid(self):
         orcid_id_str = self.ent_orcid_id.get()
         orcid_id_str_len = len(orcid_id_str)
+
         if orcid_id_str_len == 0:
             self.set_status('Enter ORCID ID.', 'red')
         elif orcid_id_str_len != 19:
             self.set_status('ID is NOT valid! (invalid length)', 'red')
         else:
             validation_result = check_orcid_id_checksum(orcid_id_str)
-            # print(f'ORCID ID OK?: {validation_result}')     # for DEBUG only
+
             if validation_result:
                 self.set_status('ID is valid.', 'green')
             else:
@@ -110,5 +111,5 @@ class MainApplication:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    MainApplication(root)
+    _ = MainApplication(root)
     root.mainloop()
