@@ -1,0 +1,10 @@
+__pycache__/
+.idea
+icon/*.png
+icon/*.ico
+venv/
+build/
+dist/
+*.pyc
+NOTES.txt
+*.spec
