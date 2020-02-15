@@ -1,4 +1,9 @@
 """
+ORCIDValidator miscellaneous functions handling ORCID ID
+
+Version: 0.1
+
+Author: d-graczyk
 
 """
 

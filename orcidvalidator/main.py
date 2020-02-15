@@ -1,8 +1,14 @@
 """
-ORCID ID Validator
+ORCIDValidator
 
-ver 0.1
+A tiny tkinter-based tool to validate an ORCID ID length and its checksum.
+
+Version: 0.1 (February 2020)
+
+Author: d-graczyk
+
 """
+
 import sys
 from tkinter import font
 import tkinter as tk
