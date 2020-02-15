@@ -10,6 +10,7 @@ Author: d-graczyk
 """
 
 import sys
+import os
 from tkinter import font
 import tkinter as tk
 from orcidvalidator.orcid_misc import check_orcid_id_checksum
@@ -18,9 +19,9 @@ from orcidvalidator.orcid_misc import check_orcid_id_checksum
 # an access to it when the application is launched from one-file bundle executable.
 if getattr(sys, 'frozen', False):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
-    path_to_the_img = os.path.join(base_path, 'ORCID_ID.ico')
+    path_to_the_img = os.path.join(base_path, 'window.ico')
 else:
-    path_to_the_img = 'D:/Programming/PythonProjects/ORCIDValidator/icon/ORCID_ID.ico'
+    path_to_the_img = os.path.join(os.getcwd(), 'icon/window.ico')
 
 
 class MainApplication:
@@ -34,7 +35,8 @@ class MainApplication:
         self.parent.geometry("310x98")
         self.parent.minsize(width=310, height=98)
 
-        self.parent.iconbitmap(path_to_the_img)
+        if os.path.isfile(path_to_the_img):
+            self.parent.iconbitmap(path_to_the_img)
 
         self.border_width = 0
 
